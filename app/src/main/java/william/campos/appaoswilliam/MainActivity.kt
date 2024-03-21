@@ -25,12 +25,11 @@ class MainActivity : AppCompatActivity() {
         val btnCalcular = findViewById<Button>(R.id.btnCalcular)
         val txtResultado = findViewById<TextView>(R.id.txtResultado)
 
-        //2- Crear un objeto de la clase calculadora
-        // Para usar el metodo de sumar
+        
 
         val obj1 = Nacimiento()
 
-        //3- Ya programar el boton
+
 
         btnCalcular.setOnClickListener {
             val resul =  obj1.Calcular(txtNacimiento.text.toString().toInt())
