@@ -1,6 +1,11 @@
 package william.campos.appaoswilliam
 
+import Nacimiento
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,10 +16,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.txtTitulo)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-    }
+        val txtNacimiento = findViewById<EditText>(R.id.txtNacimiento)
+        val btnCalcular = findViewById<Button>(R.id.btnCalcular)
+        val txtResultado = findViewById<TextView>(R.id.txtResultado)
+
+        //2- Crear un objeto de la clase calculadora
+        // Para usar el metodo de sumar
+
+        val obj1 = Nacimiento()
+
+        //3- Ya programar el boton
+
+        btnCalcular.setOnClickListener {
+            val resul =  obj1.Calcular(txtNacimiento.text.toString().toInt())
+
+
+            print("El resultado es: $resul")
+            txtResultado.text = "El resultado es $resul"
+
+
+        }
+}
 }
